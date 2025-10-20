@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Note Taking Wireframe</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+    @layer base {
+      :root {
+        --gradient-from-light: #B0B0D9;
+        --gradient-middle-light: #E6E3BC;
+        --gradient-to-light: #C4E6C1;
+        --gradient-from-dark: #2F2F4D;
+        --gradient-middle-dark: #D6AED2;
+        --gradient-to-dark: #151561;
+      }
+    }
+  </style>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background-light": "#F9F9FB",
+            "background-dark": "#121212",
+            "primary-text-light": "#1D1D20",
+            "primary-text-dark": "#E5E5E5",
+            "secondary-text-light": "#6E6E73",
+            "secondary-text-dark": "#9E9E9E",
+            "placeholder-light": "#8E8E93",
+            "placeholder-dark": "#757575",
+            "card-light": "#FFFFFF",
+            "card-dark": "#1E1E1E",
+            "card-border-light": "#ECEFF4",
+            "card-border-dark": "#2C2C2C",
+            "button-primary-bg": "#1D1D20",
+            "button-primary-text": "#FFFFFF",
+            "inactive-light": "#8E8E93",
+            "inactive-dark": "#757575",
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            "xl": "1rem",
+            "lg": "0.75rem",
+            "md": "0.5rem"
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-out forwards',
+            'slide-up': 'slideUp 0.5s ease-out forwards',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: 0 },
+              '100%': { transform: 'translateY(0)', opacity: 1 },
+            }
+          }
+        },
+      },
+    };
+  </script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="ethereal-gradient font-sans transition-colors duration-300">
+<div class="flex h-screen">
+<aside class="w-64 bg-transparent p-6 flex flex-col border-r border-card-border-light dark:border-card-border-dark">
+<div class="flex items-center mb-10">
+<span class="material-icons text-primary-text-light dark:text-primary-text-dark text-3xl">description</span>
+<h1 class="text-xl font-bold ml-2 text-primary-text-light dark:text-primary-text-dark">AI Notes</h1>
+</div>
+<nav class="flex-grow">
+<ul>
+<li class="mb-4">
+<a class="flex items-center p-3 bg-gray-200/50 dark:bg-card-dark/50 rounded-lg text-primary-text-light dark:text-primary-text-dark font-semibold" href="#">
+<span class="material-icons mr-3">dashboard</span> Dashboard
+            </a>
+</li>
+<li class="mb-4">
+<a class="flex items-center p-3 rounded-lg text-secondary-text-light dark:text-secondary-text-dark hover:bg-gray-100/50 dark:hover:bg-gray-700/50" href="#">
+<span class="material-icons mr-3">article</span> All Notes
+            </a>
+</li>
+<li class="mb-4">
+<a class="flex items-center p-3 rounded-lg text-secondary-text-light dark:text-secondary-text-dark hover:bg-gray-100/50 dark:hover:bg-gray-700/50" href="#">
+<span class="material-icons mr-3">auto_awesome</span> AI Summaries
+            </a>
+</li>
+<li class="mb-4">
+<a class="flex items-center p-3 rounded-lg text-secondary-text-light dark:text-secondary-text-dark hover:bg-gray-100/50 dark:hover:bg-gray-700/50" href="#">
+<span class="material-icons mr-3">archive</span> Archived
+            </a>
+</li>
+<li class="mb-4">
+<a class="flex items-center p-3 rounded-lg text-secondary-text-light dark:text-secondary-text-dark hover:bg-gray-100/50 dark:hover:bg-gray-700/50" href="#">
+<span class="material-icons mr-3">delete</span> Trash
+            </a>
+</li>
+</ul>
+<h2 class="text-sm font-semibold text-secondary-text-light dark:text-secondary-text-dark mt-10 mb-4">Recent Folders</h2>
+<ul>
+<li class="mb-4">
+<a class="flex items-center p-3 rounded-lg text-secondary-text-light dark:text-secondary-text-dark hover:bg-gray-100/50 dark:hover:bg-gray-700/50" href="#">
+<span class="material-icons mr-3 text-blue-500">folder</span> Project Ideas
+            </a>
+</li>
+<li class="mb-4">
+<a class="flex items-center p-3 rounded-lg text-secondary-text-light dark:text-secondary-text-dark hover:bg-gray-100/50 dark:hover:bg-gray-700/50" href="#">
+<span class="material-icons mr-3 text-green-500">folder</span> Meeting Notes
+            </a>
+</li>
+<li class="mb-4">
+<a class="flex items-center p-3 rounded-lg text-secondary-text-light dark:text-secondary-text-dark hover:bg-gray-100/50 dark:hover:bg-gray-700/50" href="#">
+<span class="material-icons mr-3 text-yellow-500">folder</span> Research
+            </a>
+</li>
+</ul>
+</nav>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<header class="flex justify-between items-center mb-8 bg-card-light/70 dark:bg-card-dark/70 rounded-xl p-3 border border-card-border-light dark:border-card-border-dark shadow-sm backdrop-blur-sm">
+<div class="relative flex-grow mr-4">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-placeholder-light dark:text-placeholder-dark text-lg">search</span>
+<input class="w-full bg-transparent rounded-lg py-1.5 pl-10 pr-4 text-primary-text-light dark:text-primary-text-dark placeholder-placeholder-light dark:placeholder-placeholder-dark focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm" placeholder="Search notes, summaries, or type a command..." type="text"/>
+</div>
+<div class="flex items-center space-x-3">
+<button class="text-placeholder-light dark:text-placeholder-dark hover:text-primary-text-light dark:hover:text-primary-text-dark p-1 rounded-md hover:bg-gray-100/50 dark:hover:bg-gray-700/50 transition-colors">
+<span class="material-icons text-xl">star_border</span>
+</button>
+<button class="text-placeholder-light dark:text-placeholder-dark hover:text-primary-text-light dark:hover:text-primary-text-dark p-1 rounded-md hover:bg-gray-100/50 dark:hover:bg-gray-700/50 transition-colors">
+<span class="material-icons text-xl">settings</span>
+</button>
+<button class="text-placeholder-light dark:text-placeholder-dark hover:text-primary-text-light dark:hover:text-primary-text-dark p-1 rounded-md hover:bg-gray-100/50 dark:hover:bg-gray-700/50 transition-colors" id="theme-toggle">
+<span class="material-icons dark:hidden text-xl">dark_mode</span>
+<span class="material-icons hidden dark:inline text-xl">light_mode</span>
+</button>
+<button class="relative group">
+<img alt="User avatar" class="rounded-full w-7 h-7 ring-1 ring-card-border-light dark:ring-card-border-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnmWEbylELWdXGXAuQr-_l0y34Ym2h17KNKtGQfHOomvuoCk_DrD_daigxeJ1QN4G-BZu-K2x5_Z_yMw64oYCELJPc3cozipGwlzygzje4Zkgv3KXt_FgVbdNv2i9CGFFCUAYJhobnS5TZgazzkNO3dXswYi4mPzye7Si4nwCDhHNT48I5LF1fM8u1BIONytjoY30Ltd1t2mylrhDqiMNr02bLTNSfnTXPjF8GfRWpzxkoTZf3CaK4pFlI35NtcOy0JTgWLcgdyew"/>
+</button>
+</div>
+</header>
+<div class="mb-8">
+<h2 class="text-3xl font-bold text-primary-text-light dark:text-primary-text-dark animate-fade-in">Good morning! 👋</h2>
+<p class="text-secondary-text-light dark:text-secondary-text-dark mt-1 animate-slide-up">Let's create something inspiring today.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+<div class="content-block p-8 flex flex-col items-center justify-center text-center col-span-1 md:col-span-1 lg:col-span-1 animate-slide-up" style="animation-delay: 0.1s;">
+<div class="flex flex-col items-center">
+<span class="material-icons text-5xl text-primary-text-light dark:text-primary-text-dark mb-4">upload_file</span>
+<p class="font-semibold text-xl text-primary-text-light dark:text-primary-text-dark mb-2">Capture Ideas</p>
+<p class="text-sm text-secondary-text-light dark:text-secondary-text-dark">Quickly upload documents or images for inspiration.</p>
+
+<input type="file" id="fileUpload" accept=".pdf,.txt, .doc,.docx,.png,.jpg,.jpeg" class="hidden">
+
+<button id="uploadBtn" class="mt-6 text-base font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center transition duration-300 transform hover:scale-105">
+<span class="material-icons text-lg align-middle mr-2">cloud_upload</span> Upload &amp; Analyze
+            </button>
+
+            <!-- File name preview -->
+<div id="fileInfo" class="mt-3 hidden flex items-center justify-between bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded-lg">
+         
+<p id="fileName" class="mt-3 text-sm text-gray-600 dark:text-gray-400"></p>
+<button id="removeBtn" class="text-red-500 hover:text-red-600 text-sm font-medium flex items-center">
+<span class="material-icons text-base mr-1">delete</span> Remove File
+</button>
+</div>
+</div>
+</div>
+<div class="content-block p-8 flex flex-col justify-between col-span-1 md:col-span-1 lg:col-span-1 animate-slide-up" style="animation-delay: 0.2s;">
+<div>
+<div class="flex items-center mb-4">
+<span class="material-icons text-5xl text-primary-text-light dark:text-primary-text-dark mr-4">edit_note</span>
+<h3 class="font-semibold text-xl text-primary-text-light dark:text-primary-text-dark">Spark a New Note</h3>
+</div>
+<p class="text-sm text-secondary-text-light dark:text-secondary-text-dark mb-6">Start fresh with a blank canvas or choose a template.</p>
+</div>
+<button class="w-full bg-button-primary-bg text-button-primary-text rounded-xl py-3 font-semibold flex items-center justify-center transition duration-300 transform hover:scale-105 hover:shadow-lg">
+<span class="material-icons mr-2">add</span> Create New Note
+          </button>
+</div>
+<div class="content-block p-8 flex flex-col justify-between col-span-1 md:col-span-2 lg:col-span-1 animate-slide-up" style="animation-delay: 0.3s;">
+<div>
+<div class="flex items-center mb-4">
+<span class="material-icons text-5xl text-primary-text-light dark:text-primary-text-dark mr-4">auto_awesome</span>
+<h3 class="font-semibold text-xl text-primary-text-light dark:text-primary-text-dark">Distill Your Thoughts</h3>
+</div>
+<p class="text-sm text-secondary-text-light dark:text-secondary-text-dark mb-6">Let AI summarize your lengthy notes into concise insights.</p>
+</div>
+<button class="w-full bg-button-primary-bg text-button-primary-text rounded-xl py-3 font-semibold flex items-center justify-center transition duration-300 transform hover:scale-105 hover:shadow-lg">
+<span class="material-icons mr-2">summarize</span> View AI Summaries
+          </button>
+</div>
+</div>
+<div class="content-block p-8 animate-slide-up" style="animation-delay: 0.4s;">
+<div class="flex items-center mb-6">
+<span class="material-icons text-3xl text-primary-text-light dark:text-primary-text-dark mr-3">insights</span>
+<h3 class="text-xl font-semibold text-primary-text-light dark:text-primary-text-dark">AI Creativity Assistant</h3>
+</div>
+<p class="text-secondary-text-light dark:text-secondary-text-dark mb-6">Paste your ideas, research, or rough notes here for AI-powered suggestions and summaries:</p>
+<textarea class="w-full bg-background-light/70 dark:bg-background-dark/70 border border-card-border-light dark:border-card-border-dark rounded-xl p-5 text-primary-text-light dark:text-primary-text-dark placeholder-placeholder-light dark:placeholder-placeholder-dark focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg transition duration-300 focus:shadow-md" placeholder="Describe your creative block, paste research, or brainstorm ideas... What can I help you create today?" rows="6"></textarea>
+<div class="flex justify-between items-center mt-6">
+<button class="bg-button-primary-bg text-button-primary-text rounded-xl py-3 px-8 font-semibold flex-grow mr-4 transition duration-300 transform hover:scale-105 hover:shadow-lg">
+            Generate Insights
+          </button>
+<button class="text-secondary-text-light dark:text-secondary-text-dark font-medium hover:text-primary-text-light dark:hover:text-primary-text-dark transition duration-300 transform hover:scale-105">
+            Clear
+          </button>
+</div>
+<div class="flex items-start mt-6 text-sm text-secondary-text-light dark:text-secondary-text-dark">
+<span class="material-icons text-base mr-3 text-yellow-500">lightbulb</span>
+<p><span class="font-semibold">Creative Tip:</span> Try describing your project's mood or desired outcome. The AI can suggest relevant themes, structures, or even generate creative prompts to break through. Explore! ✨</p>
+</div>
+</div>
+</main>
+</div>
+<script src="script.js"></script>
+</body></html>

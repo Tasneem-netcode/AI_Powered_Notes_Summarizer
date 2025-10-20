@@ -1,0 +1,48 @@
+@layer base {
+  :root {
+    --gradient-from-light: #B0B0D9;
+    --gradient-middle-light: #E6E3BC;
+    --gradient-to-light: #C4E6C1;
+    --gradient-from-dark: #2F2F4D;
+    --gradient-middle-dark: #D6AED2;
+    --gradient-to-dark: #151561;
+  }
+}
+
+.material-icons {
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+.ethereal-gradient {
+  background-image: linear-gradient(to bottom right, var(--gradient-from-light), var(--gradient-middle-light), var(--gradient-to-light));
+}
+
+.dark .ethereal-gradient {
+  background-image: linear-gradient(to bottom right, var(--gradient-from-dark), var(--gradient-middle-dark), var(--gradient-to-dark));
+}
+
+.content-block {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .content-block {
+  background: rgba(30, 30, 30, 0.7);
+  border: 1px solid rgba(44, 44, 44, 0.3);
+}
+
+.content-block:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.animated-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
